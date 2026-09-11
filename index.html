@@ -350,7 +350,7 @@ const matchLinks = {
 };
 
 // ===================================================================
-// ВРЕМЯ МАТЧЕЙ
+// ВРЕМЯ МАТЧЕЙ (1-17 ТУРЫ ИЗ ОФИЦИАЛЬНОГО РАСПИСАНИЯ)
 // ===================================================================
 const matchTimes = {
     1:"20:00",2:"14:00",3:"16:15",4:"18:30",5:"20:45",6:"17:00",7:"19:30",8:"19:30",
@@ -362,14 +362,14 @@ const matchTimes = {
     49:"14:00",50:"16:30",51:"19:00",52:"14:00",53:"16:15",54:"18:30",55:"20:45",56:"19:30",
     57:"18:00",58:"14:00",59:"16:15",60:"18:30",61:"20:45",62:"14:30",63:"17:00",64:"19:30",
     65:"18:30",66:"18:30",67:"20:45",68:"20:45",69:"16:15",70:"18:30",71:"18:30",72:"20:45",
-    73:"18:00",74:"18:00",75:"18:00",76:"18:00",77:"18:00",78:"18:00",79:"18:00",80:"18:00",
-    81:"18:00",82:"18:00",83:"18:00",84:"18:00",85:"18:00",86:"18:00",87:"18:00",88:"18:00",
-    89:"18:00",90:"18:00",91:"18:00",92:"18:00",93:"18:00",94:"18:00",95:"18:00",96:"18:00",
-    97:"19:00",98:"19:00",99:"19:00",100:"19:00",101:"19:00",102:"19:00",103:"19:00",104:"19:00",
-    105:"19:00",106:"19:00",107:"19:00",108:"19:00",109:"19:00",110:"19:00",111:"19:00",112:"19:00",
-    113:"19:00",114:"19:00",115:"19:00",116:"19:00",117:"19:00",118:"19:00",119:"19:00",120:"19:00",
-    121:"19:00",122:"19:00",123:"19:00",124:"19:00",125:"19:00",126:"19:00",127:"19:00",128:"19:00",
-    129:"19:00",130:"19:00",131:"19:00",132:"19:00",133:"19:00",134:"19:00",135:"19:00",136:"19:00",
+    73:"19:30",74:"13:00",75:"15:15",76:"17:30",77:"19:30",78:"14:00",79:"16:30",80:"19:30",
+    81:"14:00",82:"16:30",83:"19:30",84:"14:00",85:"16:15",86:"18:30",87:"20:45",88:"19:30",
+    89:"19:30",90:"15:00",91:"17:15",92:"18:00",93:"18:00",94:"19:30",95:"16:00",96:"18:30",
+    97:"15:15",98:"17:30",99:"19:45",100:"13:00",101:"15:15",102:"17:30",103:"19:45",104:"18:00",
+    105:"19:30",106:"14:00",107:"16:30",108:"19:30",109:"14:00",110:"16:15",111:"18:30",112:"20:45",
+    113:"19:30",114:"13:00",115:"15:15",116:"17:30",117:"19:45",118:"14:00",119:"16:30",120:"19:00",
+    121:"14:00",122:"16:30",123:"19:00",124:"13:00",125:"15:15",126:"17:30",127:"19:45",128:"19:30",
+    129:"19:30",130:"13:00",131:"15:15",132:"17:30",133:"19:45",134:"14:30",135:"17:00",136:"19:30",
     137:"19:00",138:"19:00",139:"19:00",140:"19:00",141:"19:00",142:"19:00",143:"19:00",144:"19:00",
     145:"19:00",146:"19:00",147:"19:00",148:"19:00",149:"19:00",150:"19:00",151:"19:00",152:"19:00",
     153:"19:00",154:"19:00",155:"19:00",156:"19:00",157:"19:00",158:"19:00",159:"19:00",160:"19:00",
@@ -386,7 +386,7 @@ const matchTimes = {
 };
 
 // ===================================================================
-// ДАННЫЕ МАТЧЕЙ (1-6 ТУРЫ С РЕЗУЛЬТАТАМИ, 7-30 БЕЗ РЕЗУЛЬТАТОВ)
+// ДАННЫЕ МАТЧЕЙ (1-7 ТУРЫ С РЕЗУЛЬТАТАМИ, 8-30 БЕЗ РЕЗУЛЬТАТОВ)
 // ===================================================================
 const matchData = [
     // 1-й тур (24-27 июля)
@@ -439,25 +439,25 @@ const matchData = [
     { id:39, tour:5, date:"23.08.2026", home:"Спартак", away:"Зенит", homeScore:2, awayScore:0 },
     { id:40, tour:5, date:"24.08.2026", home:"Балтика", away:"Рубин", homeScore:1, awayScore:1 },
 
-    // 6-й тур (28-30 августа) - ОБНОВЛЕНО
+    // 6-й тур (28-30 августа)
     { id:41, tour:6, date:"28.08.2026", home:"Акрон", away:"ЦСКА", homeScore:2, awayScore:2 },
     { id:42, tour:6, date:"29.08.2026", home:"Факел", away:"Зенит", homeScore:0, awayScore:1 },
     { id:43, tour:6, date:"29.08.2026", home:"Краснодар", away:"Ростов", homeScore:1, awayScore:0 },
     { id:44, tour:6, date:"29.08.2026", home:"Локомотив", away:"Динамо", homeScore:0, awayScore:1 },
     { id:45, tour:6, date:"29.08.2026", home:"Ахмат", away:"Крылья Советов", homeScore:3, awayScore:3 },
-    { id:46, tour:6, date:"30.08.2026", home:"Родина", away:"Балтика", homeScore:null, awayScore:null },
-    { id:47, tour:6, date:"30.08.2026", home:"Спартак", away:"Оренбург", homeScore:null, awayScore:null },
-    { id:48, tour:6, date:"30.08.2026", home:"Рубин", away:"Динамо Мх", homeScore:null, awayScore:null },
+    { id:46, tour:6, date:"30.08.2026", home:"Родина", away:"Балтика", homeScore:0, awayScore:3 },
+    { id:47, tour:6, date:"30.08.2026", home:"Спартак", away:"Оренбург", homeScore:1, awayScore:1 },
+    { id:48, tour:6, date:"30.08.2026", home:"Рубин", away:"Динамо Мх", homeScore:3, awayScore:1 },
 
     // 7-й тур (5-7 сентября)
-    { id:49, tour:7, date:"05.09.2026", home:"Крылья Советов", away:"Краснодар", homeScore:null, awayScore:null },
-    { id:50, tour:7, date:"05.09.2026", home:"Зенит", away:"ЦСКА", homeScore:null, awayScore:null },
-    { id:51, tour:7, date:"05.09.2026", home:"Ростов", away:"Факел", homeScore:null, awayScore:null },
-    { id:52, tour:7, date:"06.09.2026", home:"Оренбург", away:"Акрон", homeScore:null, awayScore:null },
-    { id:53, tour:7, date:"06.09.2026", home:"Динамо Мх", away:"Родина", homeScore:null, awayScore:null },
-    { id:54, tour:7, date:"06.09.2026", home:"Динамо", away:"Спартак", homeScore:null, awayScore:null },
-    { id:55, tour:7, date:"06.09.2026", home:"Балтика", away:"Локомотив", homeScore:null, awayScore:null },
-    { id:56, tour:7, date:"07.09.2026", home:"Рубин", away:"Ахмат", homeScore:null, awayScore:null },
+    { id:49, tour:7, date:"05.09.2026", home:"Крылья Советов", away:"Краснодар", homeScore:2, awayScore:2 },
+    { id:50, tour:7, date:"05.09.2026", home:"Зенит", away:"ЦСКА", homeScore:1, awayScore:2 },
+    { id:51, tour:7, date:"05.09.2026", home:"Ростов", away:"Факел", homeScore:3, awayScore:1 },
+    { id:52, tour:7, date:"06.09.2026", home:"Оренбург", away:"Акрон", homeScore:2, awayScore:2 },
+    { id:53, tour:7, date:"06.09.2026", home:"Динамо Мх", away:"Родина", homeScore:2, awayScore:0 },
+    { id:54, tour:7, date:"06.09.2026", home:"Динамо", away:"Спартак", homeScore:2, awayScore:1 },
+    { id:55, tour:7, date:"06.09.2026", home:"Балтика", away:"Локомотив", homeScore:0, awayScore:1 },
+    { id:56, tour:7, date:"07.09.2026", home:"Рубин", away:"Ахмат", homeScore:1, awayScore:1 },
 
     // 8-й тур (11-13 сентября)
     { id:57, tour:8, date:"11.09.2026", home:"Крылья Советов", away:"Родина", homeScore:null, awayScore:null },
@@ -479,85 +479,85 @@ const matchData = [
     { id:71, tour:9, date:"17.09.2026", home:"Акрон", away:"Ахмат", homeScore:null, awayScore:null },
     { id:72, tour:9, date:"17.09.2026", home:"Динамо Мх", away:"ЦСКА", homeScore:null, awayScore:null },
 
-    // 10-й тур (10 октября)
-    { id:73, tour:10, date:"10.10.2026", home:"Крылья Советов", away:"Спартак", homeScore:null, awayScore:null },
-    { id:74, tour:10, date:"10.10.2026", home:"Ростов", away:"Акрон", homeScore:null, awayScore:null },
-    { id:75, tour:10, date:"10.10.2026", home:"Оренбург", away:"Динамо Мх", homeScore:null, awayScore:null },
-    { id:76, tour:10, date:"10.10.2026", home:"Краснодар", away:"Зенит", homeScore:null, awayScore:null },
-    { id:77, tour:10, date:"10.10.2026", home:"Ахмат", away:"Балтика", homeScore:null, awayScore:null },
-    { id:78, tour:10, date:"10.10.2026", home:"ЦСКА", away:"Родина", homeScore:null, awayScore:null },
-    { id:79, tour:10, date:"10.10.2026", home:"Рубин", away:"Динамо", homeScore:null, awayScore:null },
-    { id:80, tour:10, date:"10.10.2026", home:"Факел", away:"Локомотив", homeScore:null, awayScore:null },
+    // 10-й тур (9-11 октября) — ВОССТАНОВЛЕНО
+    { id:73, tour:10, date:"09.10.2026", home:"Ростов", away:"Акрон", homeScore:null, awayScore:null },
+    { id:74, tour:10, date:"10.10.2026", home:"Оренбург", away:"Динамо Мх", homeScore:null, awayScore:null },
+    { id:75, tour:10, date:"10.10.2026", home:"Факел", away:"Локомотив", homeScore:null, awayScore:null },
+    { id:76, tour:10, date:"10.10.2026", home:"Крылья Советов", away:"Спартак", homeScore:null, awayScore:null },
+    { id:77, tour:10, date:"10.10.2026", home:"Краснодар", away:"Зенит", homeScore:null, awayScore:null },
+    { id:78, tour:10, date:"11.10.2026", home:"Ахмат", away:"Балтика", homeScore:null, awayScore:null },
+    { id:79, tour:10, date:"11.10.2026", home:"ЦСКА", away:"Родина", homeScore:null, awayScore:null },
+    { id:80, tour:10, date:"11.10.2026", home:"Рубин", away:"Динамо", homeScore:null, awayScore:null },
 
-    // 11-й тур (17 октября)
-    { id:81, tour:11, date:"17.10.2026", home:"Динамо", away:"ЦСКА", homeScore:null, awayScore:null },
-    { id:82, tour:11, date:"17.10.2026", home:"Спартак", away:"Рубин", homeScore:null, awayScore:null },
-    { id:83, tour:11, date:"17.10.2026", home:"Крылья Советов", away:"Факел", homeScore:null, awayScore:null },
-    { id:84, tour:11, date:"17.10.2026", home:"Динамо Мх", away:"Акрон", homeScore:null, awayScore:null },
-    { id:85, tour:11, date:"17.10.2026", home:"Балтика", away:"Ростов", homeScore:null, awayScore:null },
-    { id:86, tour:11, date:"17.10.2026", home:"Локомотив", away:"Краснодар", homeScore:null, awayScore:null },
-    { id:87, tour:11, date:"17.10.2026", home:"Родина", away:"Оренбург", homeScore:null, awayScore:null },
-    { id:88, tour:11, date:"17.10.2026", home:"Зенит", away:"Ахмат", homeScore:null, awayScore:null },
+    // 11-й тур (17-19 октября) — ВОССТАНОВЛЕНО
+    { id:81, tour:11, date:"17.10.2026", home:"Крылья Советов", away:"Факел", homeScore:null, awayScore:null },
+    { id:82, tour:11, date:"17.10.2026", home:"Динамо Мх", away:"Акрон", homeScore:null, awayScore:null },
+    { id:83, tour:11, date:"17.10.2026", home:"Локомотив", away:"Краснодар", homeScore:null, awayScore:null },
+    { id:84, tour:11, date:"18.10.2026", home:"Зенит", away:"Ахмат", homeScore:null, awayScore:null },
+    { id:85, tour:11, date:"18.10.2026", home:"Динамо", away:"ЦСКА", homeScore:null, awayScore:null },
+    { id:86, tour:11, date:"18.10.2026", home:"Спартак", away:"Рубин", homeScore:null, awayScore:null },
+    { id:87, tour:11, date:"18.10.2026", home:"Балтика", away:"Ростов", homeScore:null, awayScore:null },
+    { id:88, tour:11, date:"19.10.2026", home:"Родина", away:"Оренбург", homeScore:null, awayScore:null },
 
-    // 12-й тур (24 октября)
-    { id:89, tour:12, date:"24.10.2026", home:"Ростов", away:"Локомотив", homeScore:null, awayScore:null },
-    { id:90, tour:12, date:"24.10.2026", home:"Краснодар", away:"Балтика", homeScore:null, awayScore:null },
-    { id:91, tour:12, date:"24.10.2026", home:"Ахмат", away:"Оренбург", homeScore:null, awayScore:null },
-    { id:92, tour:12, date:"24.10.2026", home:"ЦСКА", away:"Спартак", homeScore:null, awayScore:null },
-    { id:93, tour:12, date:"24.10.2026", home:"Рубин", away:"Крылья Советов", homeScore:null, awayScore:null },
-    { id:94, tour:12, date:"24.10.2026", home:"Акрон", away:"Динамо", homeScore:null, awayScore:null },
-    { id:95, tour:12, date:"24.10.2026", home:"Зенит", away:"Динамо Мх", homeScore:null, awayScore:null },
-    { id:96, tour:12, date:"24.10.2026", home:"Факел", away:"Родина", homeScore:null, awayScore:null },
+    // 12-й тур (23-25 октября) — ВОССТАНОВЛЕНО
+    { id:89, tour:12, date:"23.10.2026", home:"Ахмат", away:"Оренбург", homeScore:null, awayScore:null },
+    { id:90, tour:12, date:"24.10.2026", home:"Факел", away:"Родина", homeScore:null, awayScore:null },
+    { id:91, tour:12, date:"24.10.2026", home:"Рубин", away:"Крылья Советов", homeScore:null, awayScore:null },
+    { id:92, tour:12, date:"24.10.2026", home:"Ростов", away:"Локомотив", homeScore:null, awayScore:null },
+    { id:93, tour:12, date:"24.10.2026", home:"Акрон", away:"Динамо", homeScore:null, awayScore:null },
+    { id:94, tour:12, date:"24.10.2026", home:"Краснодар", away:"Балтика", homeScore:null, awayScore:null },
+    { id:95, tour:12, date:"25.10.2026", home:"ЦСКА", away:"Спартак", homeScore:null, awayScore:null },
+    { id:96, tour:12, date:"25.10.2026", home:"Зенит", away:"Динамо Мх", homeScore:null, awayScore:null },
 
-    // 13-й тур (31 октября)
-    { id:97, tour:13, date:"31.10.2026", home:"Динамо", away:"Ахмат", homeScore:null, awayScore:null },
-    { id:98, tour:13, date:"31.10.2026", home:"Крылья Советов", away:"Зенит", homeScore:null, awayScore:null },
-    { id:99, tour:13, date:"31.10.2026", home:"Динамо Мх", away:"Ростов", homeScore:null, awayScore:null },
-    { id:100, tour:13, date:"31.10.2026", home:"Балтика", away:"Акрон", homeScore:null, awayScore:null },
-    { id:101, tour:13, date:"31.10.2026", home:"Оренбург", away:"ЦСКА", homeScore:null, awayScore:null },
-    { id:102, tour:13, date:"31.10.2026", home:"Локомотив", away:"Спартак", homeScore:null, awayScore:null },
-    { id:103, tour:13, date:"31.10.2026", home:"Родина", away:"Краснодар", homeScore:null, awayScore:null },
-    { id:104, tour:13, date:"31.10.2026", home:"Рубин", away:"Факел", homeScore:null, awayScore:null },
+    // 13-й тур (31 октября - 2 ноября) — ВОССТАНОВЛЕНО
+    { id:97, tour:13, date:"31.10.2026", home:"Рубин", away:"Факел", homeScore:null, awayScore:null },
+    { id:98, tour:13, date:"31.10.2026", home:"Динамо", away:"Ахмат", homeScore:null, awayScore:null },
+    { id:99, tour:13, date:"31.10.2026", home:"Родина", away:"Краснодар", homeScore:null, awayScore:null },
+    { id:100, tour:13, date:"01.11.2026", home:"Оренбург", away:"ЦСКА", homeScore:null, awayScore:null },
+    { id:101, tour:13, date:"01.11.2026", home:"Динамо Мх", away:"Ростов", homeScore:null, awayScore:null },
+    { id:102, tour:13, date:"01.11.2026", home:"Балтика", away:"Акрон", homeScore:null, awayScore:null },
+    { id:103, tour:13, date:"01.11.2026", home:"Локомотив", away:"Спартак", homeScore:null, awayScore:null },
+    { id:104, tour:13, date:"02.11.2026", home:"Крылья Советов", away:"Зенит", homeScore:null, awayScore:null },
 
-    // 14-й тур (7 ноября)
-    { id:105, tour:14, date:"07.11.2026", home:"Спартак", away:"Акрон", homeScore:null, awayScore:null },
-    { id:106, tour:14, date:"07.11.2026", home:"Крылья Советов", away:"Оренбург", homeScore:null, awayScore:null },
-    { id:107, tour:14, date:"07.11.2026", home:"Балтика", away:"Динамо Мх", homeScore:null, awayScore:null },
-    { id:108, tour:14, date:"07.11.2026", home:"Локомотив", away:"Рубин", homeScore:null, awayScore:null },
-    { id:109, tour:14, date:"07.11.2026", home:"Краснодар", away:"ЦСКА", homeScore:null, awayScore:null },
-    { id:110, tour:14, date:"07.11.2026", home:"Ахмат", away:"Родина", homeScore:null, awayScore:null },
-    { id:111, tour:14, date:"07.11.2026", home:"Зенит", away:"Ростов", homeScore:null, awayScore:null },
-    { id:112, tour:14, date:"07.11.2026", home:"Факел", away:"Динамо", homeScore:null, awayScore:null },
+    // 14-й тур (6-8 ноября) — ВОССТАНОВЛЕНО
+    { id:105, tour:14, date:"06.11.2026", home:"Локомотив", away:"Рубин", homeScore:null, awayScore:null },
+    { id:106, tour:14, date:"07.11.2026", home:"Факел", away:"Динамо", homeScore:null, awayScore:null },
+    { id:107, tour:14, date:"07.11.2026", home:"Ахмат", away:"Родина", homeScore:null, awayScore:null },
+    { id:108, tour:14, date:"07.11.2026", home:"Краснодар", away:"ЦСКА", homeScore:null, awayScore:null },
+    { id:109, tour:14, date:"08.11.2026", home:"Крылья Советов", away:"Оренбург", homeScore:null, awayScore:null },
+    { id:110, tour:14, date:"08.11.2026", home:"Спартак", away:"Акрон", homeScore:null, awayScore:null },
+    { id:111, tour:14, date:"08.11.2026", home:"Зенит", away:"Ростов", homeScore:null, awayScore:null },
+    { id:112, tour:14, date:"08.11.2026", home:"Балтика", away:"Динамо Мх", homeScore:null, awayScore:null },
 
-    // 15-й тур (21 ноября)
-    { id:113, tour:15, date:"21.11.2026", home:"Динамо", away:"Краснодар", homeScore:null, awayScore:null },
-    { id:114, tour:15, date:"21.11.2026", home:"Динамо Мх", away:"Спартак", homeScore:null, awayScore:null },
-    { id:115, tour:15, date:"21.11.2026", home:"Ростов", away:"Крылья Советов", homeScore:null, awayScore:null },
-    { id:116, tour:15, date:"21.11.2026", home:"Оренбург", away:"Балтика", homeScore:null, awayScore:null },
+    // 15-й тур (20-22 ноября) — ВОССТАНОВЛЕНО
+    { id:113, tour:15, date:"20.11.2026", home:"Ростов", away:"Крылья Советов", homeScore:null, awayScore:null },
+    { id:114, tour:15, date:"21.11.2026", home:"Оренбург", away:"Балтика", homeScore:null, awayScore:null },
+    { id:115, tour:15, date:"21.11.2026", home:"Акрон", away:"Факел", homeScore:null, awayScore:null },
+    { id:116, tour:15, date:"21.11.2026", home:"Рубин", away:"Зенит", homeScore:null, awayScore:null },
     { id:117, tour:15, date:"21.11.2026", home:"ЦСКА", away:"Ахмат", homeScore:null, awayScore:null },
-    { id:118, tour:15, date:"21.11.2026", home:"Родина", away:"Локомотив", homeScore:null, awayScore:null },
-    { id:119, tour:15, date:"21.11.2026", home:"Рубин", away:"Зенит", homeScore:null, awayScore:null },
-    { id:120, tour:15, date:"21.11.2026", home:"Акрон", away:"Факел", homeScore:null, awayScore:null },
+    { id:118, tour:15, date:"22.11.2026", home:"Динамо", away:"Краснодар", homeScore:null, awayScore:null },
+    { id:119, tour:15, date:"22.11.2026", home:"Динамо Мх", away:"Спартак", homeScore:null, awayScore:null },
+    { id:120, tour:15, date:"22.11.2026", home:"Родина", away:"Локомотив", homeScore:null, awayScore:null },
 
-    // 16-й тур (28 ноября)
-    { id:121, tour:16, date:"28.11.2026", home:"Крылья Советов", away:"Динамо", homeScore:null, awayScore:null },
-    { id:122, tour:16, date:"28.11.2026", home:"Ростов", away:"Краснодар", homeScore:null, awayScore:null },
+    // 16-й тур (28-30 ноября) — ВОССТАНОВЛЕНО
+    { id:121, tour:16, date:"28.11.2026", home:"Рубин", away:"Акрон", homeScore:null, awayScore:null },
+    { id:122, tour:16, date:"28.11.2026", home:"ЦСКА", away:"Зенит", homeScore:null, awayScore:null },
     { id:123, tour:16, date:"28.11.2026", home:"Балтика", away:"Ахмат", homeScore:null, awayScore:null },
-    { id:124, tour:16, date:"28.11.2026", home:"Оренбург", away:"Родина", homeScore:null, awayScore:null },
-    { id:125, tour:16, date:"28.11.2026", home:"Локомотив", away:"Динамо Мх", homeScore:null, awayScore:null },
-    { id:126, tour:16, date:"28.11.2026", home:"ЦСКА", away:"Зенит", homeScore:null, awayScore:null },
-    { id:127, tour:16, date:"28.11.2026", home:"Рубин", away:"Акрон", homeScore:null, awayScore:null },
-    { id:128, tour:16, date:"28.11.2026", home:"Факел", away:"Спартак", homeScore:null, awayScore:null },
+    { id:124, tour:16, date:"29.11.2026", home:"Оренбург", away:"Родина", homeScore:null, awayScore:null },
+    { id:125, tour:16, date:"29.11.2026", home:"Ростов", away:"Краснодар", homeScore:null, awayScore:null },
+    { id:126, tour:16, date:"29.11.2026", home:"Крылья Советов", away:"Динамо", homeScore:null, awayScore:null },
+    { id:127, tour:16, date:"29.11.2026", home:"Локомотив", away:"Динамо Мх", homeScore:null, awayScore:null },
+    { id:128, tour:16, date:"30.11.2026", home:"Факел", away:"Спартак", homeScore:null, awayScore:null },
 
-    // 17-й тур (5 декабря)
-    { id:129, tour:17, date:"05.12.2026", home:"Спартак", away:"Динамо", homeScore:null, awayScore:null },
-    { id:130, tour:17, date:"05.12.2026", home:"Динамо Мх", away:"Крылья Советов", homeScore:null, awayScore:null },
-    { id:131, tour:17, date:"05.12.2026", home:"Краснодар", away:"Рубин", homeScore:null, awayScore:null },
-    { id:132, tour:17, date:"05.12.2026", home:"Ахмат", away:"Локомотив", homeScore:null, awayScore:null },
-    { id:133, tour:17, date:"05.12.2026", home:"Родина", away:"ЦСКА", homeScore:null, awayScore:null },
-    { id:134, tour:17, date:"05.12.2026", home:"Акрон", away:"Оренбург", homeScore:null, awayScore:null },
-    { id:135, tour:17, date:"05.12.2026", home:"Зенит", away:"Балтика", homeScore:null, awayScore:null },
-    { id:136, tour:17, date:"05.12.2026", home:"Факел", away:"Ростов", homeScore:null, awayScore:null },
+    // 17-й тур (4-6 декабря) — ВОССТАНОВЛЕНО
+    { id:129, tour:17, date:"04.12.2026", home:"Динамо Мх", away:"Крылья Советов", homeScore:null, awayScore:null },
+    { id:130, tour:17, date:"05.12.2026", home:"Акрон", away:"Оренбург", homeScore:null, awayScore:null },
+    { id:131, tour:17, date:"05.12.2026", home:"Родина", away:"ЦСКА", homeScore:null, awayScore:null },
+    { id:132, tour:17, date:"05.12.2026", home:"Зенит", away:"Балтика", homeScore:null, awayScore:null },
+    { id:133, tour:17, date:"05.12.2026", home:"Ахмат", away:"Локомотив", homeScore:null, awayScore:null },
+    { id:134, tour:17, date:"06.12.2026", home:"Факел", away:"Ростов", homeScore:null, awayScore:null },
+    { id:135, tour:17, date:"06.12.2026", home:"Спартак", away:"Динамо", homeScore:null, awayScore:null },
+    { id:136, tour:17, date:"06.12.2026", home:"Краснодар", away:"Рубин", homeScore:null, awayScore:null },
 
     // 18-й тур (27 февраля 2027)
     { id:137, tour:18, date:"27.02.2027", home:"Динамо", away:"Рубин", homeScore:null, awayScore:null },
