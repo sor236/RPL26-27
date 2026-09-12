@@ -14,6 +14,7 @@
         .app{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:.8rem 1rem 120px}
         .top-panel{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);padding:.4rem 1rem;z-index:100;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.2rem .8rem;border-bottom:1px solid rgba(45,212,191,.2)}
         .top-panel .hero-title{font-size:1.6rem;font-weight:800;background:linear-gradient(90deg,#e0f5f2,#c2e8d9,#9cd4c7);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.02em;white-space:nowrap}
+        .tour-status{font-size:.75rem;color:#ef4444;font-weight:600;text-align:center;margin-top:.2rem;width:100%}
         .bottom-panel{position:fixed;bottom:0;left:0;right:0;background:rgba(0,0,0,.95);backdrop-filter:blur(8px);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.4rem;padding:.4rem .6rem;z-index:100;border-top:1px solid rgba(45,212,191,.2)}
         .bottom-btn,.bottom-link{background:rgba(20,35,33,.7);backdrop-filter:blur(4px);border:1px solid rgba(72,187,160,.3);padding:.4rem .7rem;border-radius:30px;font-weight:600;font-size:.7rem;color:#e2f2ef;cursor:pointer;transition:.2s;text-decoration:none;display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
         .bottom-btn.active{background:#2dd4bf;color:#05100f;border-color:#2dd4bf}
@@ -60,12 +61,15 @@
         .calendar-grid .day.tour-day{background:rgba(45,212,191,.25);color:#4ade80;font-weight:700;border-radius:50%}
         .calendar-grid .day.tour-day.active-tour{background:rgba(45,212,191,.4);color:#fff}
         .calendar-grid .day.other-month{opacity:.3}
-        @media(max-width:480px){body{padding-top:50px;padding-bottom:5px}.app{padding:.5rem .6rem 100px}.top-panel{padding:.3rem .6rem;gap:.1rem}.top-panel .hero-title{font-size:1.2rem}.bottom-btn,.bottom-link{font-size:.6rem;padding:.3rem .5rem}.standings{padding:.5rem}.standings table{font-size:.6rem;min-width:320px}.standings th,.standings td{padding:.15rem .1rem}.standings .team-name{font-size:.65rem;gap:3px}.standings .team-logo{width:16px;height:16px}.standings td:last-child{font-size:.65rem;min-width:24px}.team{font-size:.85rem}.team .team-logo-small{width:20px;height:20px}.score-inputs input{width:40px;font-size:1rem}.matches-grid{gap:.6rem}.match-card{border-radius:1rem}.card-header{font-size:.5rem;padding:.2rem .5rem}.tour-badge{font-size:.5rem;padding:.05rem .4rem}.calendar-wrap{padding:.5rem}.calendar-grid{font-size:.6rem;gap:1px}}
+        @media(max-width:480px){body{padding-top:50px;padding-bottom:5px}.app{padding:.5rem .6rem 100px}.top-panel{padding:.3rem .6rem;gap:.1rem}.top-panel .hero-title{font-size:1.2rem}.tour-status{font-size:.65rem}.bottom-btn,.bottom-link{font-size:.6rem;padding:.3rem .5rem}.standings{padding:.5rem}.standings table{font-size:.6rem;min-width:320px}.standings th,.standings td{padding:.15rem .1rem}.standings .team-name{font-size:.65rem;gap:3px}.standings .team-logo{width:16px;height:16px}.standings td:last-child{font-size:.65rem;min-width:24px}.team{font-size:.85rem}.team .team-logo-small{width:20px;height:20px}.score-inputs input{width:40px;font-size:1rem}.matches-grid{gap:.6rem}.match-card{border-radius:1rem}.card-header{font-size:.5rem;padding:.2rem .5rem}.tour-badge{font-size:.5rem;padding:.05rem .4rem}.calendar-wrap{padding:.5rem}.calendar-grid{font-size:.6rem;gap:1px}}
         @media(max-width:380px){.app{padding:.5rem .6rem 90px}.standings table{font-size:.5rem;min-width:280px}.standings .team-name{font-size:.55rem}.standings .team-logo{width:14px;height:14px}.team{font-size:.75rem}.team .team-logo-small{width:16px;height:16px}.score-inputs input{width:32px;font-size:.9rem}}
     </style>
 </head>
 <body>
-<div class="top-panel"><div class="hero-title"><i class="fas fa-futbol"></i> РПЛ 2026/2027</div></div>
+<div class="top-panel">
+    <div class="hero-title"><i class="fas fa-futbol"></i> РПЛ 2026/2027</div>
+    <div id="tourStatus" class="tour-status"></div>
+</div>
 <div class="app">
     <div id="standingsContainer" class="standings"></div>
     <div class="content-grid">
@@ -350,7 +354,7 @@ const matchLinks = {
 };
 
 // ===================================================================
-// ВРЕМЯ МАТЧЕЙ (1-17 ТУРЫ ИЗ ОФИЦИАЛЬНОГО РАСПИСАНИЯ)
+// ВРЕМЯ МАТЧЕЙ
 // ===================================================================
 const matchTimes = {
     1:"20:00",2:"14:00",3:"16:15",4:"18:30",5:"20:45",6:"17:00",7:"19:30",8:"19:30",
@@ -749,8 +753,9 @@ function renderStandings() {
 }
 
 // ===================================================================
-// ОПРЕДЕЛЕНИЕ ПОСЛЕДНЕГО СЫГРАННОГО ТУРА
+// ОПРЕДЕЛЕНИЕ ТУРОВ
 // ===================================================================
+// Последний тур, в котором есть хотя бы один результат
 function getLastPlayedTour() {
     let last = 1;
     matchData.forEach(m => {
@@ -762,12 +767,38 @@ function getLastPlayedTour() {
     return last;
 }
 
+// Сегодняшний тур (если сегодня попадает в диапазон дат тура)
+function getTodayTour() {
+    const now = new Date();
+    now.setHours(0,0,0,0);
+    for (let t = 1; t <= 30; t++) {
+        const dates = tourDates[t];
+        if (!dates || dates.length === 0) continue;
+        // Считаем диапазон: от минимальной до максимальной даты
+        const times = dates.map(ds => {
+            const [d, m, y] = ds.split('.').map(Number);
+            return new Date(y, m - 1, d).getTime();
+        });
+        const min = Math.min(...times);
+        const max = Math.max(...times);
+        if (now.getTime() >= min && now.getTime() <= max) {
+            return t;
+        }
+    }
+    return null;
+}
+
+// Тур по умолчанию: сегодняшний (если есть), иначе последний сыгранный
+function getDefaultTour() {
+    return getTodayTour() || getLastPlayedTour();
+}
+
 // ===================================================================
 // ОТОБРАЖЕНИЕ МАТЧЕЙ
 // ===================================================================
 function getActiveTour() {
     const activeBtn = document.querySelector('.bottom-btn.active');
-    return activeBtn ? parseInt(activeBtn.getAttribute('data-tour')) : getLastPlayedTour();
+    return activeBtn ? parseInt(activeBtn.getAttribute('data-tour')) : getDefaultTour();
 }
 
 function updateTeamColors() {
@@ -895,7 +926,7 @@ matchData.forEach(m => {
 // ===================================================================
 function buildBottomFilters() {
     const container = document.getElementById('bottomPanel');
-    const initialTour = getLastPlayedTour();   // ← определяем тур по умолчанию
+    const initialTour = getDefaultTour();   // ← сегодняшний тур или последний сыгранный
     let html = '';
     for (let i = 1; i <= 30; i++) {
         const cls = i === initialTour ? 'bottom-btn active' : 'bottom-btn';
@@ -913,12 +944,27 @@ function buildBottomFilters() {
 }
 
 // ===================================================================
+// НАДПИСЬ В ШАПКЕ
+// ===================================================================
+function renderTourStatus() {
+    const el = document.getElementById('tourStatus');
+    if (!el) return;
+    const todayTour = getTodayTour();
+    if (todayTour) {
+        el.textContent = `играется ${todayTour} тур`;
+    } else {
+        el.textContent = `сыгран ${getLastPlayedTour()} тур`;
+    }
+}
+
+// ===================================================================
 // ЗАПУСК
 // ===================================================================
 loadScores();
 buildBottomFilters();
 renderStandings();
 renderMatches();
+renderTourStatus();
 </script>
 </body>
 </html>
