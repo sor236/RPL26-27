@@ -390,7 +390,7 @@ const matchTimes = {
 };
 
 // ===================================================================
-// ДАННЫЕ МАТЧЕЙ (1-7 ТУРЫ С РЕЗУЛЬТАТАМИ, 8-30 БЕЗ РЕЗУЛЬТАТОВ)
+// ДАННЫЕ МАТЧЕЙ (1-8 ТУРЫ С РЕЗУЛЬТАТАМИ (ЧАСТИЧНО), 9-30 БЕЗ РЕЗУЛЬТАТОВ)
 // ===================================================================
 const matchData = [
     // 1-й тур (24-27 июля)
@@ -463,10 +463,10 @@ const matchData = [
     { id:55, tour:7, date:"06.09.2026", home:"Балтика", away:"Локомотив", homeScore:0, awayScore:1 },
     { id:56, tour:7, date:"07.09.2026", home:"Рубин", away:"Ахмат", homeScore:1, awayScore:1 },
 
-    // 8-й тур (11-13 сентября)
-    { id:57, tour:8, date:"11.09.2026", home:"Крылья Советов", away:"Родина", homeScore:null, awayScore:null },
-    { id:58, tour:8, date:"12.09.2026", home:"Факел", away:"Балтика", homeScore:null, awayScore:null },
-    { id:59, tour:8, date:"12.09.2026", home:"Зенит", away:"Локомотив", homeScore:null, awayScore:null },
+    // 8-й тур (11-13 сентября) — ЧАСТИЧНО ЗАПОЛНЕНО
+    { id:57, tour:8, date:"11.09.2026", home:"Крылья Советов", away:"Родина", homeScore:2, awayScore:1 },
+    { id:58, tour:8, date:"12.09.2026", home:"Факел", away:"Балтика", homeScore:2, awayScore:2 },
+    { id:59, tour:8, date:"12.09.2026", home:"Зенит", away:"Локомотив", homeScore:2, awayScore:1 },
     { id:60, tour:8, date:"12.09.2026", home:"Динамо", away:"Оренбург", homeScore:null, awayScore:null },
     { id:61, tour:8, date:"12.09.2026", home:"ЦСКА", away:"Рубин", homeScore:null, awayScore:null },
     { id:62, tour:8, date:"13.09.2026", home:"Ахмат", away:"Динамо Мх", homeScore:null, awayScore:null },
@@ -755,7 +755,6 @@ function renderStandings() {
 // ===================================================================
 // ОПРЕДЕЛЕНИЕ ТУРОВ
 // ===================================================================
-// Последний тур, в котором есть хотя бы один результат
 function getLastPlayedTour() {
     let last = 1;
     matchData.forEach(m => {
@@ -767,14 +766,12 @@ function getLastPlayedTour() {
     return last;
 }
 
-// Сегодняшний тур (если сегодня попадает в диапазон дат тура)
 function getTodayTour() {
     const now = new Date();
     now.setHours(0,0,0,0);
     for (let t = 1; t <= 30; t++) {
         const dates = tourDates[t];
         if (!dates || dates.length === 0) continue;
-        // Считаем диапазон: от минимальной до максимальной даты
         const times = dates.map(ds => {
             const [d, m, y] = ds.split('.').map(Number);
             return new Date(y, m - 1, d).getTime();
@@ -788,7 +785,6 @@ function getTodayTour() {
     return null;
 }
 
-// Тур по умолчанию: сегодняшний (если есть), иначе последний сыгранный
 function getDefaultTour() {
     return getTodayTour() || getLastPlayedTour();
 }
@@ -926,7 +922,7 @@ matchData.forEach(m => {
 // ===================================================================
 function buildBottomFilters() {
     const container = document.getElementById('bottomPanel');
-    const initialTour = getDefaultTour();   // ← сегодняшний тур или последний сыгранный
+    const initialTour = getDefaultTour();
     let html = '';
     for (let i = 1; i <= 30; i++) {
         const cls = i === initialTour ? 'bottom-btn active' : 'bottom-btn';
