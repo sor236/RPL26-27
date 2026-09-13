@@ -468,7 +468,7 @@ const matchData = [
     { id:58, tour:8, date:"12.09.2026", home:"Факел", away:"Балтика", homeScore:2, awayScore:2 },
     { id:59, tour:8, date:"12.09.2026", home:"Зенит", away:"Локомотив", homeScore:2, awayScore:1 },
     { id:60, tour:8, date:"12.09.2026", home:"Динамо", away:"Оренбург", homeScore:1, awayScore:0 },
-    { id:61, tour:8, date:"12.09.2026", home:"ЦСКА", away:"Рубин", homeScore:null, awayScore:null },
+    { id:61, tour:8, date:"12.09.2026", home:"ЦСКА", away:"Рубин", homeScore:1, awayScore:1 },
     { id:62, tour:8, date:"13.09.2026", home:"Ахмат", away:"Динамо Мх", homeScore:null, awayScore:null },
     { id:63, tour:8, date:"13.09.2026", home:"Спартак", away:"Ростов", homeScore:null, awayScore:null },
     { id:64, tour:8, date:"13.09.2026", home:"Краснодар", away:"Акрон", homeScore:null, awayScore:null },
@@ -945,11 +945,19 @@ function buildBottomFilters() {
 function renderTourStatus() {
     const el = document.getElementById('tourStatus');
     if (!el) return;
+
+    // Текущая дата в формате DD.MM.YYYY
+    const now = new Date();
+    const dd = String(now.getDate()).padStart(2, '0');
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const yyyy = now.getFullYear();
+    const todayStr = `${dd}.${mm}.${yyyy}`;
+
     const todayTour = getTodayTour();
     if (todayTour) {
-        el.textContent = `играется ${todayTour} тур`;
+        el.textContent = `Сегодня: ${todayStr}. Идёт ${todayTour} тур.`;
     } else {
-        el.textContent = `сыгран ${getLastPlayedTour()} тур`;
+        el.textContent = `Сегодня: ${todayStr}. Сыгран ${getLastPlayedTour()} тур.`;
     }
 }
 
