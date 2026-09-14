@@ -390,7 +390,7 @@ const matchTimes = {
 };
 
 // ===================================================================
-// ДАННЫЕ МАТЧЕЙ (1-8 ТУРЫ С РЕЗУЛЬТАТАМИ (ЧАСТИЧНО), 9-30 БЕЗ РЕЗУЛЬТАТОВ)
+// ДАННЫЕ МАТЧЕЙ (1-8 ТУРЫ С РЕЗУЛЬТАТАМИ, 9-30 БЕЗ РЕЗУЛЬТАТОВ)
 // ===================================================================
 const matchData = [
     // 1-й тур (24-27 июля)
@@ -463,15 +463,15 @@ const matchData = [
     { id:55, tour:7, date:"06.09.2026", home:"Балтика", away:"Локомотив", homeScore:0, awayScore:1 },
     { id:56, tour:7, date:"07.09.2026", home:"Рубин", away:"Ахмат", homeScore:1, awayScore:1 },
 
-    // 8-й тур (11-13 сентября) — ЧАСТИЧНО ЗАПОЛНЕНО
+    // 8-й тур (11-13 сентября)
     { id:57, tour:8, date:"11.09.2026", home:"Крылья Советов", away:"Родина", homeScore:2, awayScore:1 },
     { id:58, tour:8, date:"12.09.2026", home:"Факел", away:"Балтика", homeScore:2, awayScore:2 },
     { id:59, tour:8, date:"12.09.2026", home:"Зенит", away:"Локомотив", homeScore:2, awayScore:1 },
     { id:60, tour:8, date:"12.09.2026", home:"Динамо", away:"Оренбург", homeScore:1, awayScore:0 },
     { id:61, tour:8, date:"12.09.2026", home:"ЦСКА", away:"Рубин", homeScore:1, awayScore:1 },
-    { id:62, tour:8, date:"13.09.2026", home:"Ахмат", away:"Динамо Мх", homeScore:null, awayScore:null },
-    { id:63, tour:8, date:"13.09.2026", home:"Спартак", away:"Ростов", homeScore:null, awayScore:null },
-    { id:64, tour:8, date:"13.09.2026", home:"Краснодар", away:"Акрон", homeScore:null, awayScore:null },
+    { id:62, tour:8, date:"13.09.2026", home:"Ахмат", away:"Динамо Мх", homeScore:3, awayScore:2 },
+    { id:63, tour:8, date:"13.09.2026", home:"Спартак", away:"Ростов", homeScore:3, awayScore:0 },
+    { id:64, tour:8, date:"13.09.2026", home:"Краснодар", away:"Акрон", homeScore:1, awayScore:1 },
 
     // 9-й тур (16-17 сентября)
     { id:65, tour:9, date:"16.09.2026", home:"Спартак", away:"Факел", homeScore:null, awayScore:null },
@@ -946,7 +946,6 @@ function renderTourStatus() {
     const el = document.getElementById('tourStatus');
     if (!el) return;
 
-    // Текущая дата в формате DD.MM.YYYY
     const now = new Date();
     const dd = String(now.getDate()).padStart(2, '0');
     const mm = String(now.getMonth() + 1).padStart(2, '0');
