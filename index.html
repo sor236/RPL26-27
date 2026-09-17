@@ -42,7 +42,7 @@
         .tour-badge{background:#1e2f2c;padding:.1rem .6rem;border-radius:20px;font-weight:700}
         .teams{display:flex;justify-content:space-between;align-items:center;padding:.3rem .6rem;gap:.3rem}
         .team{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1px;background:rgba(0,0,0,.2);padding:.2rem .3rem;border-radius:1.5rem;flex:1;font-size:1rem;font-weight:600;transition:color .2s;word-break:break-word;line-height:1.2}
-        .team .team-logo-small{width:24px;height:24px;object-fit:contain;vertical-align:middle;display:inline-block}
+        .team .team-logo-small{width:31px;height:31px;object-fit:contain;vertical-align:middle;display:inline-block}
         .team.win{color:#4ade80}
         .team.loss{color:#f87171}
         .team.draw{color:#60a5fa}
@@ -61,8 +61,8 @@
         .calendar-grid .day.tour-day{background:rgba(45,212,191,.25);color:#4ade80;font-weight:700;border-radius:50%}
         .calendar-grid .day.tour-day.active-tour{background:rgba(45,212,191,.4);color:#fff}
         .calendar-grid .day.other-month{opacity:.3}
-        @media(max-width:480px){body{padding-top:50px;padding-bottom:5px}.app{padding:.5rem .6rem 100px}.top-panel{padding:.3rem .6rem;gap:.1rem}.top-panel .hero-title{font-size:1.2rem}.tour-status{font-size:.65rem}.bottom-btn,.bottom-link{font-size:.6rem;padding:.3rem .5rem}.standings{padding:.5rem}.standings table{font-size:.6rem;min-width:320px}.standings th,.standings td{padding:.15rem .1rem}.standings .team-name{font-size:.65rem;gap:3px}.standings .team-logo{width:16px;height:16px}.standings td:last-child{font-size:.65rem;min-width:24px}.team{font-size:.85rem}.team .team-logo-small{width:20px;height:20px}.score-inputs input{width:40px;font-size:1rem}.matches-grid{gap:.6rem}.match-card{border-radius:1rem}.card-header{font-size:.5rem;padding:.2rem .5rem}.tour-badge{font-size:.5rem;padding:.05rem .4rem}.calendar-wrap{padding:.5rem}.calendar-grid{font-size:.6rem;gap:1px}}
-        @media(max-width:380px){.app{padding:.5rem .6rem 90px}.standings table{font-size:.5rem;min-width:280px}.standings .team-name{font-size:.55rem}.standings .team-logo{width:14px;height:14px}.team{font-size:.75rem}.team .team-logo-small{width:16px;height:16px}.score-inputs input{width:32px;font-size:.9rem}}
+        @media(max-width:480px){body{padding-top:50px;padding-bottom:5px}.app{padding:.5rem .6rem 100px}.top-panel{padding:.3rem .6rem;gap:.1rem}.top-panel .hero-title{font-size:1.2rem}.tour-status{font-size:.65rem}.bottom-btn,.bottom-link{font-size:.6rem;padding:.3rem .5rem}.standings{padding:.5rem}.standings table{font-size:.6rem;min-width:320px}.standings th,.standings td{padding:.15rem .1rem}.standings .team-name{font-size:.65rem;gap:3px}.standings .team-logo{width:16px;height:16px}.standings td:last-child{font-size:.65rem;min-width:24px}.team{font-size:.85rem}.team .team-logo-small{width:26px;height:26px}.score-inputs input{width:40px;font-size:1rem}.matches-grid{gap:.6rem}.match-card{border-radius:1rem}.card-header{font-size:.5rem;padding:.2rem .5rem}.tour-badge{font-size:.5rem;padding:.05rem .4rem}.calendar-wrap{padding:.5rem}.calendar-grid{font-size:.6rem;gap:1px}}
+        @media(max-width:380px){.app{padding:.5rem .6rem 90px}.standings table{font-size:.5rem;min-width:280px}.standings .team-name{font-size:.55rem}.standings .team-logo{width:14px;height:14px}.team{font-size:.75rem}.team .team-logo-small{width:21px;height:21px}.score-inputs input{width:32px;font-size:.9rem}}
     </style>
 </head>
 <body>
@@ -390,7 +390,7 @@ const matchTimes = {
 };
 
 // ===================================================================
-// ДАННЫЕ МАТЧЕЙ (1-8 ТУРЫ С РЕЗУЛЬТАТАМИ, 9-30 БЕЗ РЕЗУЛЬТАТОВ)
+// ДАННЫЕ МАТЧЕЙ (1-9 ТУРЫ С РЕЗУЛЬТАТАМИ (ЧАСТИЧНО), 10-30 БЕЗ РЕЗУЛЬТАТОВ)
 // ===================================================================
 const matchData = [
     // 1-й тур (24-27 июля)
@@ -473,11 +473,11 @@ const matchData = [
     { id:63, tour:8, date:"13.09.2026", home:"Спартак", away:"Ростов", homeScore:3, awayScore:0 },
     { id:64, tour:8, date:"13.09.2026", home:"Краснодар", away:"Акрон", homeScore:1, awayScore:1 },
 
-    // 9-й тур (16-17 сентября)
-    { id:65, tour:9, date:"16.09.2026", home:"Спартак", away:"Факел", homeScore:null, awayScore:null },
-    { id:66, tour:9, date:"16.09.2026", home:"Родина", away:"Рубин", homeScore:null, awayScore:null },
-    { id:67, tour:9, date:"16.09.2026", home:"Балтика", away:"Зенит", homeScore:null, awayScore:null },
-    { id:68, tour:9, date:"16.09.2026", home:"Локомотив", away:"Крылья Советов", homeScore:null, awayScore:null },
+    // 9-й тур (16-17 сентября) — ЧАСТИЧНО ЗАПОЛНЕНО
+    { id:65, tour:9, date:"16.09.2026", home:"Спартак", away:"Факел", homeScore:1, awayScore:0 },
+    { id:66, tour:9, date:"16.09.2026", home:"Родина", away:"Рубин", homeScore:1, awayScore:1 },
+    { id:67, tour:9, date:"16.09.2026", home:"Балтика", away:"Зенит", homeScore:2, awayScore:3 },
+    { id:68, tour:9, date:"16.09.2026", home:"Локомотив", away:"Крылья Советов", homeScore:1, awayScore:1 },
     { id:69, tour:9, date:"17.09.2026", home:"Оренбург", away:"Краснодар", homeScore:null, awayScore:null },
     { id:70, tour:9, date:"17.09.2026", home:"Ростов", away:"Динамо", homeScore:null, awayScore:null },
     { id:71, tour:9, date:"17.09.2026", home:"Акрон", away:"Ахмат", homeScore:null, awayScore:null },
